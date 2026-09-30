@@ -1,8 +1,14 @@
+```python
+import hashlib
+import os
+
 # Small threat intelligence database
-# These are example hashes for demonstration.
+# Example SHA-256 hash for demonstration.
+# Replace this with hashes from your own trusted threat-intelligence source.
 KNOWN_MALWARE_HASHES = {
     "44d88612fea8a8f36de82e1278abb02f": "Example Malware"
 }
+
 
 def calculate_hash(filename):
     sha256 = hashlib.sha256()
@@ -15,12 +21,17 @@ def calculate_hash(filename):
                 break
 
             sha256.update(data)
+
     return sha256.hexdigest()
+
+
 def detect_malware(filename):
+
     # Check whether file exists
     if not os.path.exists(filename):
         print("File not found!")
         return
+
     # Calculate SHA-256 hash
     file_hash = calculate_hash(filename)
 
@@ -32,11 +43,18 @@ def detect_malware(filename):
         print("Result: MALWARE DETECTED")
         print("Threat Intelligence: Known malicious file")
         return
+
     # Basic suspicious file check
     suspicious_extensions = [
-        ".exe", ".bat", ".cmd", ".vbs", ".scr"
+        ".exe",
+        ".bat",
+        ".cmd",
+        ".vbs",
+        ".scr"
     ]
+
     extension = os.path.splitext(filename)[1].lower()
+
     if extension in suspicious_extensions:
         print("Result: SUSPICIOUS FILE")
         print("Reason: Executable or script file")
@@ -44,6 +62,9 @@ def detect_malware(filename):
         print("Result: SAFE")
         print("Threat Intelligence: No known malicious hash found")
 
+
 # Main program
-filename = input("Enter the file name: ")
+filename = input("Enter the file name: ").strip()
+
 detect_malware(filename)
+```

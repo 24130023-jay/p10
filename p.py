@@ -66,4 +66,3 @@ def detect_malware(filename):
 filename = input("Enter the file name: ").strip()
 
 detect_malware(filename)
-```

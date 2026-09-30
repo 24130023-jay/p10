@@ -5,7 +5,7 @@ import os
 # Example SHA-256 hash for demonstration.
 # Replace this with hashes from your own trusted threat-intelligence source.
 KNOWN_MALWARE_HASHES = {
-    "44d88612fea8a8f36de82e1278abb02f": "Example Malware"
+    "9df23441c4c1bbbe94290c995f945f9e79a8b7c7d29203b74f4bcdd880a18907": "Example Malware"
 }
 
 
